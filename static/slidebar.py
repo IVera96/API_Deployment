@@ -92,6 +92,17 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
         value=50,
         step=1,
     )
+    
+    if type_of_property == "Appartement":
+        Surface_area_plot_of_land=0.0
+    else:
+        Surface_area_plot_of_land=st.sidebar.number_input(
+        label="Enter your surface ares plot of land (m²)",
+        min_value=12,
+        max_value=1000,
+        value=50,
+        step=1,
+    )
 
   
     if Living_Area:
