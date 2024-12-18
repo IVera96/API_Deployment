@@ -2,7 +2,7 @@ import numpy as np
 import joblib
 
 # Load scaler
-scaler_path=f'./static/scaler.save'
+scaler_path=f'./model/scaler.save'
 scaler = joblib.load(scaler_path)
 
 
