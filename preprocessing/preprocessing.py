@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 original_data_path = (
     r"./data/immoweb_data_cleaned.csv"
@@ -7,8 +8,6 @@ df = pd.read_csv(original_data_path)
 
 
 def preprocess_user_input(user_df):
-    from sklearn.preprocessing import LabelEncoder
-
     le_property = LabelEncoder()
     le_property.fit(df["Type_of_Property"])
     user_df["Type_of_Property"] = le_property.transform([user_df["Type_of_Property"]])[
