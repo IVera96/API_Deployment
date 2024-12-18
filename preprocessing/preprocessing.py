@@ -1,7 +1,7 @@
 import pandas as pd
 
 original_data_path = (
-    r"C:/OneDrive/Desktop/becode_projects/Deployment/data/immoweb_data_cleaned.csv"
+    r"./data/immoweb_data_cleaned.csv"
 )
 df = pd.read_csv(original_data_path)
 
