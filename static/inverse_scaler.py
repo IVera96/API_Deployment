@@ -2,7 +2,8 @@ import numpy as np
 import joblib
 
 # Load scaler
-scaler = joblib.load("C:/OneDrive/Desktop/becode_projects/Deployment/scaler.save")
+scaler_path=f'./static/scaler.save'
+scaler = joblib.load()
 
 
 def my_inverse_scaler(y: np.ndarray, X: np.ndarray) -> np.ndarray:
