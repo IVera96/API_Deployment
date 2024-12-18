@@ -12,7 +12,6 @@ IMG_SIDEBAR_PATH = f"./static/img.jpg"
 
 
 def get_postal_code(df, province, municipality):
-    """Funzione per ottenere il codice postale da provincia e comune"""
     postal_code = df[
         (df["Province"] == province) & (df["Municipality"] == municipality)
     ]["Locality"].values
@@ -37,8 +36,6 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
     type_of_property = st.sidebar.selectbox(
         "Choose the type of property", type_of_property_map
     )
-
-    # Sottotipo di proprietà
     if type_of_property == "Appartement":
         subtype_of_property_map = {
             "Appartement": "APARTMENT",
@@ -72,7 +69,6 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
         "Choose the type of sub-property", subtype_of_property_map
     )
 
-    # Stato dell'edificio
     state_of_the_building_map = {
         "Good": "GOOD",
         "As new": "AS_NEW",
@@ -85,11 +81,10 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
         "Choose the state of the building", state_of_the_building_map
     )
 
-    # Numero di stanze
+
     Number_of_Rooms = st.sidebar.selectbox(f"Choose the number of rooms", (1, 2, 3, 4))
 
-    # Superficie abitabile
-    # Living_Area = st.sidebar.slider("Choose your living space (m2)", 12, 150)
+  
     Living_Area = st.sidebar.number_input(
         label="Enter your living space (m²)",
         min_value=12,
@@ -98,23 +93,23 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
         step=1,
     )
 
-    # Verifica che l'input sia un numero
+  
     if Living_Area:
         try:
             Living_Area = float(Living_Area)
         except ValueError:
             st.sidebar.error("Please enter a valid number for Living Area.")
 
-    # Numero di facciate
+
     Number_of_Facades = st.sidebar.selectbox(
         "Choose the number of facades", (1, 2, 3, 4, 5)
     )
 
-    # Piscina
+
     Swimming_Pool_map = {"No": 0.0, "Yes": 1.0}
     swimming_pool = st.sidebar.selectbox("Want a house with pool?", Swimming_Pool_map)
 
-    # Provincia
+
     Province_map = {
         "Flandre Orientale": "East Flanders",
         "Anvers": "Antwerp",
@@ -130,7 +125,7 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
     }
     province = st.sidebar.selectbox("Choose your province", Province_map)
 
-    # Seleziona il comune e il codice postale
+ 
     col_one_list = (
         df[df["Province"] == Province_map.get(province)].Municipality.unique().tolist()
     )
@@ -143,7 +138,7 @@ def add_sidebar(df, IMG_SIDEBAR_PATH):
         else:
             st.warning(f"No postal code found for {selectbox_01}.")
 
-    # Creare il dizionario delle selezioni
+
     user_selections = {
         "Locality": postal_code,
         "Type_of_Property": type_of_property_map[type_of_property],
