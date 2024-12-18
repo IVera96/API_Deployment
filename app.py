@@ -24,13 +24,13 @@ from static.slidebar import add_sidebar, get_postal_code
 
 
 original_data_path = (
-    r"C:/OneDrive/Desktop/becode_projects/Deployment/data/immoweb_data_cleaned.csv"
+    r"./data/immoweb_data_cleaned.csv"
 )
 df = pd.read_csv(original_data_path)
 
 IMG_SIDEBAR_PATH = f"./static/img.jpg"
-model_path =f"./model/model_simple_no_out_allF_SDV_BEST.h5"
-scaler_path=f'./model/scaler.save'
+model_path ="./model/model_simple_no_out_allF_SDV_BEST.h5"
+scaler_path='./model/scaler.save'
 
 model = load_model(model_path)
 scaler = joblib.load(scaler_path)
