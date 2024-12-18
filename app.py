@@ -28,12 +28,13 @@ original_data_path = (
 )
 df = pd.read_csv(original_data_path)
 
-IMG_SIDEBAR_PATH = "C:/OneDrive/Desktop/becode_projects/Deployment/static/img.jpg"
-# model_path=r'C:/OneDrive/Desktop/becode_projects/Deployment/model_DNN_short_version_2048.h5'
-model_path = r"model/model_simple_no_out_allF_SDV_BEST.h5"
+IMG_SIDEBAR_PATH = f"./static/img.jpg"
+model_path =f"./model/model_simple_no_out_allF_SDV_BEST.h5"
+scaler_path=f'./model/scaler.save'
+
 model = load_model(model_path)
 #
-scaler = joblib.load("C:/Users/ilasv/API_Deployment/model/scaler.save")
+scaler = joblib.load("scaler_path)
 
 st.set_page_config(
     page_title="House Price Analysis 🏡",
