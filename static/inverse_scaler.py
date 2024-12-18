@@ -3,7 +3,7 @@ import joblib
 
 # Load scaler
 scaler_path=f'./static/scaler.save'
-scaler = joblib.load()
+scaler = joblib.load(scaler_path)
 
 
 def my_inverse_scaler(y: np.ndarray, X: np.ndarray) -> np.ndarray:
