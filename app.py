@@ -33,8 +33,7 @@ model_path =f"./model/model_simple_no_out_allF_SDV_BEST.h5"
 scaler_path=f'./model/scaler.save'
 
 model = load_model(model_path)
-#
-scaler = joblib.load("scaler_path)
+scaler = joblib.load(scaler_path)
 
 st.set_page_config(
     page_title="House Price Analysis 🏡",
