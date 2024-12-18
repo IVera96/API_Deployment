@@ -4,11 +4,11 @@ import numpy as np
 from PIL import Image
 
 original_data_path = (
-    r"C:/OneDrive/Desktop/becode_projects/Deployment/data/immoweb_data_cleaned.csv"
+    r"./data/immoweb_data_cleaned.csv"
 )
 df = pd.read_csv(original_data_path)
 
-IMG_SIDEBAR_PATH = "C:/OneDrive/Desktop/becode_projects/Deployment/static/img.jpg"
+IMG_SIDEBAR_PATH = f"./static/img.jpg"
 
 
 def get_postal_code(df, province, municipality):
